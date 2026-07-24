@@ -37,7 +37,7 @@ jobs:
     strategy: { fail-fast: false, matrix: { shard: [1, 2, 3, 4, 5, 6, 7, 8] } }
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with: { node-version: "24" }
       - run: npm ci
       - name: unit shard (timed)
@@ -52,7 +52,7 @@ jobs:
     runs-on: ${{ fromJSON(github.event.inputs.target == 'github' && '"ubuntu-latest"' || '["self-hosted","omni-release"]') }}
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with: { node-version: "24" }
       - run: npm ci
       - name: vitest (timed)
@@ -66,7 +66,7 @@ jobs:
     runs-on: ${{ fromJSON(github.event.inputs.target == 'github' && '"ubuntu-latest"' || '["self-hosted","omni-release"]') }}
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with: { node-version: "24" }
       - run: npm ci
       - name: build web (timed)
@@ -80,7 +80,7 @@ jobs:
     runs-on: ${{ fromJSON(github.event.inputs.target == 'github' && '"ubuntu-latest"' || '["self-hosted","omni-release"]') }}
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with: { node-version: "24" }
       - run: npm ci
       - name: build cli (timed)
@@ -95,7 +95,7 @@ jobs:
     strategy: { fail-fast: false, matrix: { shard: [1, 2, 3] } }
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with: { node-version: "24" }
       - run: npm ci
       - run: npx playwright install --with-deps chromium
@@ -111,7 +111,7 @@ jobs:
     strategy: { fail-fast: false, matrix: { shard: [1, 2] } }
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with: { node-version: "24" }
       - run: npm ci
       - name: integration shard (timed)
